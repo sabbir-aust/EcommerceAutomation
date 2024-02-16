@@ -4,6 +4,7 @@ import org.automationTest.Browser.OpenBrowser;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -225,6 +226,56 @@ public class Registration extends OpenBrowser {
 
     }
 
+    @Test(priority = 4)
+    public void logout() throws InterruptedException {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement clickonLogo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='Trendyol Logo']")));
+        clickonLogo.click();
+
+        WebElement clickonRegistrationBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='by clicking you can access the user page if you already logged in']")));
+
+        //Instantiating Actions class
+        Actions actions = new Actions(driver);
+
+        //Hovering on main menu
+        actions.moveToElement(clickonRegistrationBtn).perform();
+        Thread.sleep(3000);
+
+        // Locating the element from Sub Menu
+        WebElement subMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='Sign out']")));
+
+        //To mouseover on sub menu
+        actions.moveToElement(subMenu).perform();
+
+        //build()- used to compile all the actions into a single step
+        actions.click().build().perform();
+        Thread.sleep(3000);
+
+    }
+
+    @Test(priority = 5)
+    public void faq() throws InterruptedException {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        WebElement clickonSupport = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='help-icon']")));
+        clickonSupport.click();
+
+        WebElement clickonFAQ = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[normalize-space()='FAQ']")));
+        clickonFAQ.click();
+
+        //WebElement clickonFirstFAQ = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[normalize-space()='When will my order arrive?']")));
+
+        //clickonFirstFAQ.click();
+        Thread.sleep(2000);
+//        WebElement firstFAQDescription = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(),'As soon as your order is on its way, you will rece')]")));
+//
+//        Assert.assertFalse(firstFAQDescription.getText().isEmpty());
+
+    }
+//
     @AfterTest
     public void tearDown() throws Exception {
         if (driver != null) {
