@@ -45,9 +45,9 @@ public class Registration extends OpenBrowser {
 
     }
 
+    //Case 1
     @Test(priority = 2)
-    public void selectRegistration() throws InterruptedException {
-
+    public void registrationFieldAvailable(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement clickonRegistrationBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='by clicking you can access the user page if you already logged in']")));
@@ -71,7 +71,14 @@ public class Registration extends OpenBrowser {
 
         WebElement signUp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Sign up']")));
         Assert.assertTrue(signUp.isDisplayed());
+    }
 
+    //Case 2
+    @Test(priority = 3)
+    public void validationCheckOnEmptyField() throws InterruptedException {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement signUp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Sign up']")));
 
         //Verify that all the specified fields are present on the registration page.
         signUp.click();
@@ -80,7 +87,18 @@ public class Registration extends OpenBrowser {
         Thread.sleep(2000);
         WebElement closePopUp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='OK']")));
         closePopUp.click();
+    }
 
+    //Case 3
+    @Test(priority = 4)
+    public void validationCheckBlankSpace() throws InterruptedException {
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        //Verify that all the specified fields are present on the registration page.
+        WebElement email = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='register-email-input']")));
+        WebElement password = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='register-password-input']")));
+        WebElement genderMale = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Man']")));
 
         //Verify that entering blank spaces on mandatory fields leads to validation error.
         email.sendKeys(" ");
@@ -98,8 +116,10 @@ public class Registration extends OpenBrowser {
 
     }
 
-    @Test(priority = 3)
-    public void purchaseProducts() throws InterruptedException{
+
+    //Case 5
+    @Test(priority = 5)
+    public void addProductsToWishlist() throws InterruptedException{
         //Login
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
@@ -146,6 +166,14 @@ public class Registration extends OpenBrowser {
         driver.navigate().back();
 
         Thread.sleep(3000);
+    }
+
+    //Case 4
+    @Test(priority = 6)
+    public void addProductsToCart() throws InterruptedException{
+        //Login
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
         //Purchase products
         WebElement clickOnitem1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='search-result']/div[@class='search-result']/section[@class='contents-container']/div[@class='contents']/div[@class='body']/div[@class='search-result-wrapper']/ul[@class='product-list']/div[1]/a[1]/div[2]/div[2]")));
         clickOnitem1.click();
@@ -226,7 +254,25 @@ public class Registration extends OpenBrowser {
 
     }
 
-    @Test(priority = 4)
+    //Case 6
+//    @Test(priority = 7)
+//    public void purchaseProducts() throws InterruptedException{
+//        //Login
+//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+//
+//        //click on checkout
+//        WebElement clickOnCheckout = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Checkout']")));
+//        clickOnCheckout.click();
+//
+//        Thread.sleep(1000);
+//        //Click on place order
+//        WebElement placeOrder = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Place order']")));
+//        placeOrder.click();
+//
+//    }
+
+    //case 7
+    @Test(priority = 8)
     public void logout() throws InterruptedException {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -255,27 +301,7 @@ public class Registration extends OpenBrowser {
 
     }
 
-    @Test(priority = 5)
-    public void faq() throws InterruptedException {
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-
-        WebElement clickonSupport = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@class='help-icon']")));
-        clickonSupport.click();
-
-        WebElement clickonFAQ = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[normalize-space()='FAQ']")));
-        clickonFAQ.click();
-
-        //WebElement clickonFirstFAQ = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[normalize-space()='When will my order arrive?']")));
-
-        //clickonFirstFAQ.click();
-        Thread.sleep(2000);
-//        WebElement firstFAQDescription = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(),'As soon as your order is on its way, you will rece')]")));
-//
-//        Assert.assertFalse(firstFAQDescription.getText().isEmpty());
-
-    }
-//
     @AfterTest
     public void tearDown() throws Exception {
         if (driver != null) {
