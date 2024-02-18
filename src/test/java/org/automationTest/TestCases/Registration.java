@@ -155,7 +155,6 @@ public class Registration extends OpenBrowser {
     public void addProductsToCart() throws InterruptedException{
         try {
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            //driver.navigate().back();
 
             WebElement loginEmail = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='login-email-input']")));
             loginEmail.sendKeys("ing.kaltrinakomoni@gmail.com");
@@ -168,15 +167,6 @@ public class Registration extends OpenBrowser {
             Thread.sleep(1000);
 
             driver.get("https://www.trendyol.com");
-
-            //Click on start shopping
-//            WebElement startShoppingBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='START SHOPPING']")));
-//            startShoppingBtn.click();
-
-            //Click on shop now
-//            WebElement shopNowBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='widget-list']/div[@class='widget-container']/div[@class='widget-list-wrapper']/div[1]/a[1]/img[1]")));
-//            shopNowBtn.click();
-//            Thread.sleep(1000);
 
             //Purchase products
             WebElement clickOnitem1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(@class,'react-multi-carousel-item react-multi-carousel-item--active')]//img[@alt='Jeans - Blue - Skinny']")));
@@ -215,11 +205,7 @@ public class Registration extends OpenBrowser {
             WebElement clickonLogo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='trendyol international logo']")));
             clickonLogo.click();
             Thread.sleep(2000);
-            //Click on shop now
-//            WebElement shopNowBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='widget-list']/div[@class='widget-container']/div[@class='widget-list-wrapper']/div[1]/a[1]/img[1]")));
-//            shopNowBtn.click();
 
-//            Thread.sleep(2000);
             //Add items to wishlist
             WebElement item1WishList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[1]//a[1]//div[1]//div[1]//div[2]//div[2]//img[1]")));
             item1WishList.click();
@@ -252,7 +238,6 @@ public class Registration extends OpenBrowser {
     public void purchaseProducts() throws InterruptedException{
 
         try {
-            //Login
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
             //Click on Bag
