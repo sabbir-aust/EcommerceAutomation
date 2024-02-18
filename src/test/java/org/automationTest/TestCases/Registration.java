@@ -166,21 +166,21 @@ public class Registration extends OpenBrowser {
             clickLogin.click();
             Thread.sleep(1000);
 
-            driver.get("https://www.trendyol.com");
+            driver.get("https://www.trendyol.com/en/sr?wb=44&wg=1");
 
             //Purchase products
-            WebElement clickOnitem1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(@class,'react-multi-carousel-item react-multi-carousel-item--active')]//img[@alt='Jeans - Blue - Skinny']")));
+            WebElement clickOnitem1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='search-result']/div[@class='search-result']/section[@class='contents-container']/div[@class='contents']/div[@class='body']/div[@class='search-result-wrapper']/ul[@class='product-list']/div[1]/a[1]/div[2]/div[1]/div[1]")));
             clickOnitem1.click();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
-            WebElement clickOnAddtoCart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Add to bag']")));
+            WebElement clickOnAddtoCart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='add-to-basket']")));
             clickOnAddtoCart.click();
-            Thread.sleep(1000);
+            Thread.sleep(2000);
 
-            driver.get("https://www.trendyol.com");
+            driver.get("https://www.trendyol.com/en/sr?wb=44&wg=1");
 
-            Thread.sleep(3000);
-            WebElement clickOnitem2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='Bigdart']")));
+            Thread.sleep(2000);
+            WebElement clickOnitem2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@title='bLACK/Sail/Gym Red Wmns 1 Low For Women / Girls']//div[@class='head']")));
             clickOnitem2.click();
             Thread.sleep(1000);
             WebElement clickOnAddtoCart2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Add to bag']")));
@@ -265,6 +265,7 @@ public class Registration extends OpenBrowser {
 
             WebElement clickonLogo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='Trendyol Logo']")));
             clickonLogo.click();
+            Thread.sleep(3000);
 
             WebElement clickonRegistrationBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='by clicking you can access the user page if you already logged in']")));
 
@@ -273,7 +274,7 @@ public class Registration extends OpenBrowser {
 
             //Hovering on main menu
             actions.moveToElement(clickonRegistrationBtn).perform();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
 
             // Locating the element from Sub Menu
             WebElement subMenu = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='Sign out']")));
@@ -283,7 +284,7 @@ public class Registration extends OpenBrowser {
 
             //build()- used to compile all the actions into a single step
             actions.click().build().perform();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             testResults.add(new String[]{"Case 7", "Pass"});
         }catch (Exception e){
             testResults.add(new String[]{"Case 7", "Fail"});
