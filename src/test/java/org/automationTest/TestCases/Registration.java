@@ -150,13 +150,12 @@ public class Registration extends OpenBrowser {
     }
 
 
-    //Case 5
-    @Test(priority = 5, description = "Case 5" )
-    public void addProductsToWishlist() throws InterruptedException{
-
+    //Case 4
+    @Test(priority = 5, description = "Case 4")
+    public void addProductsToCart() throws InterruptedException{
         try {
-            //Login
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            //driver.navigate().back();
 
             WebElement loginEmail = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='login-email-input']")));
             loginEmail.sendKeys("sabinulhaque7@gmail.com");
@@ -171,6 +170,48 @@ public class Registration extends OpenBrowser {
             WebElement startShoppingBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='START SHOPPING']")));
             startShoppingBtn.click();
 
+            //Click on shop now
+            WebElement shopNowBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='widget-list']/div[@class='widget-container']/div[@class='widget-list-wrapper']/div[1]/a[1]/img[1]")));
+            shopNowBtn.click();
+            Thread.sleep(1000);
+
+            //Purchase products
+            WebElement clickOnitem1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='search-result']/div[@class='search-result']/section[@class='contents-container']/div[@class='contents']/div[@class='body']/div[@class='search-result-wrapper']/ul[@class='product-list']/div[1]/a[1]/div[2]/div[2]")));
+            clickOnitem1.click();
+            Thread.sleep(1000);
+
+            WebElement clickOnAddtoCart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Add to bag']")));
+            clickOnAddtoCart.click();
+            Thread.sleep(1000);
+
+            driver.navigate().back();
+
+            Thread.sleep(3000);
+            WebElement clickOnitem2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[normalize-space()='bLACK/Sail/Gym Red Wmns 1 Low For Women / Girls']")));
+            clickOnitem2.click();
+            Thread.sleep(1000);
+            WebElement clickOnAddtoCart2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Add to bag']")));
+            clickOnAddtoCart2.click();
+            Thread.sleep(2000);
+
+            testResults.add(new String[]{"Case 4", "Pass"});
+        }catch (Exception e){
+            testResults.add(new String[]{"Case 4", "Fail"});
+        }
+
+    }
+
+    //Case 5
+    @Test(priority = 6, description = "Case 5" )
+    public void addProductsToWishlist() throws InterruptedException{
+
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+
+            WebElement clickonLogo = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='trendyol international logo']")));
+            clickonLogo.click();
+            Thread.sleep(2000);
             //Click on shop now
             WebElement shopNowBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='widget-list']/div[@class='widget-container']/div[@class='widget-list-wrapper']/div[1]/a[1]/img[1]")));
             shopNowBtn.click();
@@ -202,33 +243,16 @@ public class Registration extends OpenBrowser {
         }
     }
 
-    //Case 4
-    @Test(priority = 6, description = "Case 4")
-    public void addProductsToCart() throws InterruptedException{
+
+    //Case 6
+    @Test(priority = 7, description = "Case 6")
+    public void purchaseProducts() throws InterruptedException{
+
         try {
+            //Login
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            driver.navigate().back();
-            //Purchase products
-            WebElement clickOnitem1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='search-result']/div[@class='search-result']/section[@class='contents-container']/div[@class='contents']/div[@class='body']/div[@class='search-result-wrapper']/ul[@class='product-list']/div[1]/a[1]/div[2]/div[2]")));
-            clickOnitem1.click();
-            Thread.sleep(1000);
-
-            WebElement clickOnAddtoCart = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Add to bag']")));
-            clickOnAddtoCart.click();
-            Thread.sleep(1000);
-
-            driver.navigate().back();
-
-            Thread.sleep(3000);
-            WebElement clickOnitem2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[normalize-space()='bLACK/Sail/Gym Red Wmns 1 Low For Women / Girls']")));
-            clickOnitem2.click();
-            Thread.sleep(1000);
-            WebElement clickOnAddtoCart2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Add to bag']")));
-            clickOnAddtoCart2.click();
-            Thread.sleep(1000);
 
             //Click on Bag
-
             WebElement clickOnBag = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//img[@alt='by clicking you can open the basket page']")));
             clickOnBag.click();
             Thread.sleep(1000);
@@ -238,38 +262,12 @@ public class Registration extends OpenBrowser {
             clickOnCheckout.click();
             Thread.sleep(1000);
 
-            //Click on place order
-//            WebElement placeOrder = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Place order']")));
-//            placeOrder.click();
-            testResults.add(new String[]{"Case 4", "Pass"});
+            testResults.add(new String[]{"Case 6", "Pass"});
         }catch (Exception e){
-            testResults.add(new String[]{"Case 4", "Fail"});
+            testResults.add(new String[]{"Case 6", "Fail"});
         }
 
     }
-
-    //Case 6
-//    @Test(priority = 7, description = "Case 6")
-//    public void purchaseProducts() throws InterruptedException{
-//
-//        try {
-//            //Login
-//            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//
-//            //click on checkout
-//            WebElement clickOnCheckout = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Checkout']")));
-//            clickOnCheckout.click();
-//
-//            Thread.sleep(1000);
-//            //Click on place order
-//            WebElement placeOrder = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='Place order']")));
-//            placeOrder.click();
-//            testResults.add(new String[]{"Case 6", "Pass"});
-//        }catch (Exception e){
-//            testResults.add(new String[]{"Case 6", "Fail"});
-//        }
-//
-//    }
 
     //case 7
     @Test(priority = 8, description = "Case 7")
