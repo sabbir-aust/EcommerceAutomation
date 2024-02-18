@@ -158,25 +158,28 @@ public class Registration extends OpenBrowser {
             //driver.navigate().back();
 
             WebElement loginEmail = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='login-email-input']")));
-            loginEmail.sendKeys("sabinulhaque7@gmail.com");
+            loginEmail.sendKeys("ing.kaltrinakomoni@gmail.com");
 
             WebElement loginPassword = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//input[@id='login-password-input']")));
-            loginPassword.sendKeys("1234567a");
+            loginPassword.sendKeys("Onefor12.");
 
             WebElement clickLogin = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Log in']")));
             clickLogin.click();
-
-            //Click on start shopping
-            WebElement startShoppingBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='START SHOPPING']")));
-            startShoppingBtn.click();
-
-            //Click on shop now
-            WebElement shopNowBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='widget-list']/div[@class='widget-container']/div[@class='widget-list-wrapper']/div[1]/a[1]/img[1]")));
-            shopNowBtn.click();
             Thread.sleep(1000);
 
+            driver.get("https://www.trendyol.com");
+
+            //Click on start shopping
+//            WebElement startShoppingBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[normalize-space()='START SHOPPING']")));
+//            startShoppingBtn.click();
+
+            //Click on shop now
+//            WebElement shopNowBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='widget-list']/div[@class='widget-container']/div[@class='widget-list-wrapper']/div[1]/a[1]/img[1]")));
+//            shopNowBtn.click();
+//            Thread.sleep(1000);
+
             //Purchase products
-            WebElement clickOnitem1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='search-result']/div[@class='search-result']/section[@class='contents-container']/div[@class='contents']/div[@class='body']/div[@class='search-result-wrapper']/ul[@class='product-list']/div[1]/a[1]/div[2]/div[2]")));
+            WebElement clickOnitem1 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[contains(@class,'react-multi-carousel-item react-multi-carousel-item--active')]//img[@alt='Jeans - Blue - Skinny']")));
             clickOnitem1.click();
             Thread.sleep(1000);
 
@@ -184,10 +187,10 @@ public class Registration extends OpenBrowser {
             clickOnAddtoCart.click();
             Thread.sleep(1000);
 
-            driver.navigate().back();
+            driver.get("https://www.trendyol.com");
 
             Thread.sleep(3000);
-            WebElement clickOnitem2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[normalize-space()='bLACK/Sail/Gym Red Wmns 1 Low For Women / Girls']")));
+            WebElement clickOnitem2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[normalize-space()='Bigdart']")));
             clickOnitem2.click();
             Thread.sleep(1000);
             WebElement clickOnAddtoCart2 = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[normalize-space()='Add to bag']")));
@@ -213,16 +216,16 @@ public class Registration extends OpenBrowser {
             clickonLogo.click();
             Thread.sleep(2000);
             //Click on shop now
-            WebElement shopNowBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='widget-list']/div[@class='widget-container']/div[@class='widget-list-wrapper']/div[1]/a[1]/img[1]")));
-            shopNowBtn.click();
+//            WebElement shopNowBtn = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body/main/div[@id='widget-list']/div[@class='widget-container']/div[@class='widget-list-wrapper']/div[1]/a[1]/img[1]")));
+//            shopNowBtn.click();
 
-            Thread.sleep(2000);
+//            Thread.sleep(2000);
             //Add items to wishlist
-            WebElement item1WishList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[@title='bLACK/Sail/Gym Red Wmns 1 Low For Women / Girls']//span[@class='p-icon icon-int-favorites favorite-icon']")));
+            WebElement item1WishList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//li[1]//a[1]//div[1]//div[1]//div[2]//div[2]//img[1]")));
             item1WishList.click();
 
             Thread.sleep(1000);
-            WebElement item2WishList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body[1]/main[1]/div[1]/div[2]/section[1]/div[1]/div[1]/div[2]/ul[1]/div[2]/a[1]/div[2]/div[1]/div[2]/div[1]")));
+            WebElement item2WishList = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//body[1]/main[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/ul[1]/li[2]/a[1]/div[1]/div[1]/div[2]/div[2]")));
             item2WishList.click();
 
             Thread.sleep(1000);
